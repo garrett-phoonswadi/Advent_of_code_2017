@@ -7,7 +7,7 @@ sum = list()
 
 def verify_helper(file, match):
     index = 0
-    for x in range(1, len(file)):
+    for x in range(0, len(file)):
         if file[x] == match:
             index += 1
         else:
@@ -25,7 +25,7 @@ def verify_input_iterative(file):
             return
         next = file[x + 1]
         if current == next:
-            check_for_more = verify_helper(file[x:], next)
+            check_for_more = verify_helper(file[x+1:], next)
             if check_for_more > 1:
                 sum.append(int(file[x])*check_for_more)
                 x += check_for_more
