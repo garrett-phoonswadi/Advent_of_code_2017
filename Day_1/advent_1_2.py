@@ -4,19 +4,6 @@ import sys
 
 sum = list()
 
-
-def verify_helper(file, start, match):
-    index = 0
-    for x in range(start, len(file)):
-        next_pos = ((len(file) / 2) + x) % len(file)
-        if file[next_pos] == match:
-            index += 1
-        else:
-            break
-    # print("helper found: " + str(index))
-    return index
-
-
 def verify_input_iterative(file):
     x = 0
     end = len(file)-1
@@ -27,11 +14,6 @@ def verify_input_iterative(file):
         next_pos = ((len(file)/2) + x) % len(file)
         next = file[next_pos]
         if current == next:
-            check_for_more = verify_helper(file, next_pos, next)
-            if check_for_more > 1:
-                sum.append(int(file[x])*(check_for_more))
-                x += 1
-            else:
                 sum.append(int(file[x])*2)
                 x += 1
         else:
@@ -56,7 +38,7 @@ if __name__ == "__main__":
     #print("new input: " + str(a))
     verify_input_iterative(a)
     check_ends(a)
-    print("sum: " + str(sum))
+    #print("sum: " + str(sum))
     total = 0
     for x in sum:
         total += int(x)
