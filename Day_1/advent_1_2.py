@@ -29,7 +29,7 @@ def verify_input_iterative(file):
         if current == next:
             check_for_more = verify_helper(file, next_pos, next)
             if check_for_more > 1:
-                sum.append(int(file[x])*(2+check_for_more))
+                sum.append(int(file[x])*(check_for_more))
                 x += 1
             else:
                 sum.append(int(file[x])*2)
@@ -51,9 +51,8 @@ if __name__ == "__main__":
     # print("input: " + str(input))
     a = list()
     for x in str(input):
-        if x == '\'' or x == '[' or x == ']':
-            continue
-        a.append(x)
+        if x != '\'' and x != '[' and x != ']':
+            a.append(x)
     #print("new input: " + str(a))
     verify_input_iterative(a)
     check_ends(a)
